@@ -95,22 +95,7 @@ btnlist.forEach((cell)=>{
             if(btnlist[2].textContent===btnlist[5].textContent&&btnlist[2].textContent===btnlist[8].textContent&&btnlist[2].disabled==true&&btnlist[5].disabled==true&&btnlist[8].disabled==true){
                     
                 
-                if(player=="O"){
-                    restartButton.disabled=false;
-                    textElementX.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;
-                        line++;
-                });
-                }
-                if(player=="X"){
-                    restartButton.disabled=false;
-                    textElementO.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;
-                        line++;
-                });
-                }
+                win();
              
             } 
 
