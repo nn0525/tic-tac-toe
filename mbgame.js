@@ -20,8 +20,25 @@ function resetGame() {
     restartButton.disabled=true;
     c=0;
   }
-  
 
+  function winX(){
+    var textElementX = document.getElementById('textX');
+    restartButton.disabled=false;
+    textElementX.style.opacity=1;
+    btnlist.forEach((cell)=>{
+        cell.disabled=true;
+        line++;
+});
+  }
+  function winO(){
+    var textElementO = document.getElementById('textO');
+    restartButton.disabled=false;
+    textElementO.style.opacity=1;
+    btnlist.forEach((cell)=>{
+        cell.disabled=true;
+        line++;
+});
+  }
 btnlist.forEach((cell)=>{
     
         cell.textContent=player;
@@ -57,24 +74,17 @@ btnlist.forEach((cell)=>{
         }
         var textElementO = document.getElementById('textO');
         var textElementX = document.getElementById('textX');
+        var line=0;
            //勝利判断
            
             //縦の勝利判断 
                 if(btnlist[0].textContent===btnlist[3].textContent&&btnlist[0].textContent===btnlist[6].textContent&&btnlist[0].disabled==true&&btnlist[3].disabled==true&&btnlist[6].disabled==true){
                  
                 if(player=="O"){
-                    restartButton.disabled=false;
-                    textElementX.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;
-                });
+                    winX();
                 }
                 if(player=="X"){
-                    restartButton.disabled=false;
-                    textElementO.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;
-                });
+                    winO();
                 }
              
             } 
@@ -82,18 +92,10 @@ btnlist.forEach((cell)=>{
                     
                 
                 if(player=="O"){
-                    restartButton.disabled=false;
-                    textElementX.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;
-                });
+                    winX();
                 }
                 if(player=="X"){
-                    restartButton.disabled=false;
-                    textElementO.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;
-                });
+                    winO();
                 }
              
             } 
@@ -105,6 +107,7 @@ btnlist.forEach((cell)=>{
                     textElementX.style.opacity=1;
                     btnlist.forEach((cell)=>{
                         cell.disabled=true;
+                        line++;
                 });
                 }
                 if(player=="X"){
@@ -112,6 +115,7 @@ btnlist.forEach((cell)=>{
                     textElementO.style.opacity=1;
                     btnlist.forEach((cell)=>{
                         cell.disabled=true;
+                        line++;
                 });
                 }
              
@@ -122,18 +126,10 @@ btnlist.forEach((cell)=>{
                     
                 
                     if(player=="O"){
-                        restartButton.disabled=false;
-                        textElementX.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winX();
                     }
                     if(player=="X"){
-                        restartButton.disabled=false;
-                        textElementO.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winO();
                     }
                  
                 } 
@@ -141,18 +137,10 @@ btnlist.forEach((cell)=>{
                     
                 
                     if(player=="O"){
-                        restartButton.disabled=false;
-                        textElementX.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winX();
                     }
                     if(player=="X"){
-                        restartButton.disabled=false;
-                        textElementO.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winO();
                     }
                  
                 } 
@@ -160,54 +148,30 @@ btnlist.forEach((cell)=>{
                     
                 
                     if(player=="O"){
-                        restartButton.disabled=false;
-                        textElementX.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winX();
                     }
                     if(player=="X"){
-                        restartButton.disabled=false;
-                        textElementO.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winO();
                     }
                  
                 } 
             //左上から右下への斜めの勝利判断
                 if(btnlist[0].textContent===btnlist[4].textContent&&btnlist[0].textContent===btnlist[8].textContent&&btnlist[0].disabled==true&&btnlist[4].disabled==true&&btnlist[8].disabled==true){
                     if(player=="O"){
-                        restartButton.disabled=false;
-                        textElementX.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winX();
                     }
                     if(player=="X"){
-                        restartButton.disabled=false;
-                        textElementO.style.opacity=1;
-                        btnlist.forEach((cell)=>{
-                            cell.disabled=true;
-                    });
+                        winO();
                     }
                 } 
             //右上から左下の斜めへの勝利判断
             if(btnlist[2].textContent===btnlist[4].textContent&&btnlist[2].textContent===btnlist[6].textContent&&btnlist[2].disabled==true&&btnlist[4].disabled==true&&btnlist[6].disabled==true)
             {
                 if(player=="O"){
-                    restartButton.disabled=false;
-                    textElementX.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;
-                });
+                    winX();
                 }
                 if(player=="X"){
-                    restartButton.disabled=false;
-                    textElementO.style.opacity=1;
-                    btnlist.forEach((cell)=>{
-                        cell.disabled=true;   
-                });
+                    winO();
                 }
              }
              //引き分け
