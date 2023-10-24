@@ -21,16 +21,9 @@ function resetGame() {
     c=0;
   }
 
-  function winX(){
-    var textElementX = document.getElementById('textX');
-    restartButton.disabled=false;
-    textElementX.style.opacity=1;
-    btnlist.forEach((cell)=>{
-        cell.disabled=true;
-        line++;
-});
-  }
-  function winO(){
+  
+  function win(){
+    if (player == "X"){ 
     var textElementO = document.getElementById('textO');
     restartButton.disabled=false;
     textElementO.style.opacity=1;
@@ -39,6 +32,16 @@ function resetGame() {
         line++;
 });
   }
+  else{
+    var textElementX = document.getElementById('textX');
+    restartButton.disabled=false;
+    textElementX.style.opacity=1;
+    btnlist.forEach((cell)=>{
+        cell.disabled=true;
+        line++;
+});
+  }
+}
 btnlist.forEach((cell)=>{
     
         cell.textContent=player;
@@ -80,23 +83,13 @@ btnlist.forEach((cell)=>{
             //縦の勝利判断 
                 if(btnlist[0].textContent===btnlist[3].textContent&&btnlist[0].textContent===btnlist[6].textContent&&btnlist[0].disabled==true&&btnlist[3].disabled==true&&btnlist[6].disabled==true){
                  
-                if(player=="O"){
-                    winX();
-                }
-                if(player=="X"){
-                    winO();
-                }
+                win();
              
             } 
             if(btnlist[1].textContent===btnlist[4].textContent&&btnlist[1].textContent===btnlist[7].textContent&&btnlist[1].disabled==true&&btnlist[4].disabled==true&&btnlist[7].disabled==true){
                     
+                win();
                 
-                if(player=="O"){
-                    winX();
-                }
-                if(player=="X"){
-                    winO();
-                }
              
             } 
             if(btnlist[2].textContent===btnlist[5].textContent&&btnlist[2].textContent===btnlist[8].textContent&&btnlist[2].disabled==true&&btnlist[5].disabled==true&&btnlist[8].disabled==true){
@@ -125,54 +118,29 @@ btnlist.forEach((cell)=>{
                 if(btnlist[0].textContent===btnlist[1].textContent&&btnlist[0].textContent===btnlist[2].textContent&&btnlist[0].disabled==true&&btnlist[1].disabled==true&&btnlist[2].disabled==true){
                     
                 
-                    if(player=="O"){
-                        winX();
-                    }
-                    if(player=="X"){
-                        winO();
-                    }
+                    win();
                  
                 } 
                 if(btnlist[3].textContent===btnlist[4].textContent&&btnlist[3].textContent===btnlist[5].textContent&&btnlist[3].disabled==true&&btnlist[4].disabled==true&&btnlist[5].disabled==true){
                     
                 
-                    if(player=="O"){
-                        winX();
-                    }
-                    if(player=="X"){
-                        winO();
-                    }
+                    win();
                  
                 } 
                 if(btnlist[6].textContent===btnlist[7].textContent&&btnlist[6].textContent===btnlist[8].textContent&&btnlist[6].disabled==true&&btnlist[7].disabled==true&&btnlist[8].disabled==true){
                     
                 
-                    if(player=="O"){
-                        winX();
-                    }
-                    if(player=="X"){
-                        winO();
-                    }
+                    win();
                  
                 } 
             //左上から右下への斜めの勝利判断
                 if(btnlist[0].textContent===btnlist[4].textContent&&btnlist[0].textContent===btnlist[8].textContent&&btnlist[0].disabled==true&&btnlist[4].disabled==true&&btnlist[8].disabled==true){
-                    if(player=="O"){
-                        winX();
-                    }
-                    if(player=="X"){
-                        winO();
-                    }
+                    win();
                 } 
             //右上から左下の斜めへの勝利判断
             if(btnlist[2].textContent===btnlist[4].textContent&&btnlist[2].textContent===btnlist[6].textContent&&btnlist[2].disabled==true&&btnlist[4].disabled==true&&btnlist[6].disabled==true)
             {
-                if(player=="O"){
-                    winX();
-                }
-                if(player=="X"){
-                    winO();
-                }
+                win();
              }
              //引き分け
                 if(c==9&&textElementO.style.opacity!=1&&textElementX.style.opacity!=1){
