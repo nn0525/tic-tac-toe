@@ -3,7 +3,7 @@ const restartButton = document.getElementById('restartbutton');
 console.log(btnlist)
 restartButton.disabled=true;
 let player = "O"
-var textElementdraw = document.getElementById('textdraw');
+const textElementdraw = document.getElementById('textdraw');
 
 function resetGame() {
     btnlist.forEach((cell) => {
@@ -12,8 +12,8 @@ function resetGame() {
       cell.disabled = false;
     });
   
-    var textElementO = document.getElementById('textO');
-    var textElementX = document.getElementById('textX');
+    const textElementO = document.getElementById('textO');
+    const textElementX = document.getElementById('textX');
     textElementO.style.opacity = 0;
     textElementX.style.opacity = 0;
     textElementdraw.style.opacity = 0;
@@ -24,7 +24,7 @@ function resetGame() {
   
   function win(){
     if (player == "X"){ 
-    var textElementO = document.getElementById('textO');
+    const textElementO = document.getElementById('textO');
     restartButton.disabled=false;
     textElementO.style.opacity=1;
     btnlist.forEach((cell)=>{
@@ -33,7 +33,7 @@ function resetGame() {
 });
   }
   else{
-    var textElementX = document.getElementById('textX');
+    const textElementX = document.getElementById('textX');
     restartButton.disabled=false;
     textElementX.style.opacity=1;
     btnlist.forEach((cell)=>{
@@ -54,10 +54,10 @@ btnlist.forEach((cell)=>{
         cell.classList.add('clicked');
         cell.disabled = true;
         c=c+1;
-        if (player=="X"){
+        if (player==="X"){
             player="O"
             btnlist.forEach((cell)=>{
-                if(cell.disabled!=true){
+                if(cell.disabled!==true){
                     cell.textContent=player;
                 }
     
@@ -68,15 +68,15 @@ btnlist.forEach((cell)=>{
             player="X"
             btnlist.forEach((cell)=>{
     
-                if(cell.disabled!=true){
+                if(cell.disabled!==true){
                     cell.textContent=player;
                 }
             
         });
             
         }
-        var textElementO = document.getElementById('textO');
-        var textElementX = document.getElementById('textX');
+        const textElementO = document.getElementById('textO');
+        const textElementX = document.getElementById('textX');
         var line=0;
            //勝利判断
            
@@ -143,7 +143,7 @@ btnlist.forEach((cell)=>{
                 win();
              }
              //引き分け
-                if(c==9&&textElementO.style.opacity!=1&&textElementX.style.opacity!=1){
+                if(c===9&&textElementO.style.opacity!==1&&textElementX.style.opacity!=1){
                     restartButton.disabled=false;
                     textElementdraw.style.opacity=1;
                 }
