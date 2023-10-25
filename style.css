@@ -28,8 +28,8 @@ table{
   background: #6eb3de
   
 }
-.wintextO,
-.wintextX,
+
+.wintext,
 .drawtext {
   text-align:center;
   font-size: 200%;
@@ -43,5 +43,15 @@ table{
   font-size: 150%;
   
   
+}
+.wintext.Lopa{
+  text-align:center;
+  font-size: 200%;
+  opacity: 0;
+}
+.wintext.Hopa{
+  text-align:center;
+  font-size: 200%;
+  opacity: 1;
 }
 

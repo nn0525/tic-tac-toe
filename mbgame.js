@@ -4,7 +4,7 @@ console.log(btnlist)
 restartButton.disabled=true;
 let player = "O"
 const textElementdraw = document.getElementById('textdraw');
-
+var c = 0;
 function resetGame() {
     btnlist.forEach((cell) => {
       cell.textContent = player;
@@ -12,11 +12,11 @@ function resetGame() {
       cell.disabled = false;
     });
   
-    const textElementO = document.getElementById('textO');
-    const textElementX = document.getElementById('textX');
-    textElementO.style.opacity = 0;
-    textElementX.style.opacity = 0;
-    textElementdraw.style.opacity = 0;
+    const textElementwin = document.getElementById('textW');
+
+    textElementwin.classList.remove('Hopa');
+    textElementwin.classList.add('Lopa')
+    
     restartButton.disabled=true;
     c=0;
   }
@@ -24,30 +24,30 @@ function resetGame() {
   
   function win(){
     if (player == "X"){ 
-    const textElementO = document.getElementById('textO');
+    const textElementwin = document.getElementById('textW');
+    textElementwin.textContent="Oの勝ち"
     restartButton.disabled=false;
-    textElementO.style.opacity=1;
+    textElementwin.classList.add('Hopa');
     btnlist.forEach((cell)=>{
         cell.disabled=true;
-        line++;
-});
+    });
   }
-  else{
-    const textElementX = document.getElementById('textX');
+  else {
+    const textElementwin = document.getElementById('textW');
+    textElementwin.textContent="Xの勝ち"
     restartButton.disabled=false;
-    textElementX.style.opacity=1;
+    textElementwin.classList.add('Hopa');
     btnlist.forEach((cell)=>{
         cell.disabled=true;
-        line++;
-});
+    });
   }
+  
 }
 btnlist.forEach((cell)=>{
     
         cell.textContent=player;
     
 });
-var c = 0;
 btnlist.forEach((cell)=>{
     cell.addEventListener('click',function(){
         cell.textContent=player;
@@ -75,8 +75,7 @@ btnlist.forEach((cell)=>{
         });
             
         }
-        const textElementO = document.getElementById('textO');
-        const textElementX = document.getElementById('textX');
+        const textElementwin = document.getElementById('textW');
         var line=0;
            //勝利判断
            
@@ -128,9 +127,10 @@ btnlist.forEach((cell)=>{
                 win();
              }
              //引き分け
-                if(c===9&&textElementO.style.opacity!==1&&textElementX.style.opacity!=1){
+                if(c===9&&textElementwin.style.opacity!==1){
                     restartButton.disabled=false;
-                    textElementdraw.style.opacity=1;
+                    textElementwin.classList.add('Hopa');
+                    textElementwin.textContent="draw!!!"
                 }
         }
     );
